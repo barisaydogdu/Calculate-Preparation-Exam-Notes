@@ -1,0 +1,73 @@
+﻿@model WebApplication2.Models.tbl_main
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <style>
+        .d{
+            padding-bottom:11rem;
+        }
+        .formcard {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top:5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="formcard">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal ">
+                    <h4>Create New Data</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+                            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control form-control-lg d" } })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-info" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-success" })
+        @*  @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-warning" })*@
+    </div>
+
+
+
+</body>
+</html>

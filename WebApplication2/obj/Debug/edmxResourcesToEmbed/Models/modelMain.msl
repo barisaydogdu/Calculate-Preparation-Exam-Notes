@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Dbo_englishClubModelStoreContainer" CdmEntityContainer="Dbo_englishClubEntities">
+    <EntitySetMapping Name="tbl_main">
+      <EntityTypeMapping TypeName="Dbo_englishClubModel.tbl_main">
+        <MappingFragment StoreEntitySet="tbl_main">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

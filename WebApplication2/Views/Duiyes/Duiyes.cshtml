@@ -1,0 +1,110 @@
+﻿@model WebApplication2.Models.duiyesmodel
+@{
+    ViewBag.Title = "Duiyes";
+}
+
+<html>
+<head>
+    <style>
+
+        label {
+            color: white;
+        }
+
+        html,
+        body {
+            background-color: #2A2B38;
+        }
+
+        .form-group {
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 15px;
+        }
+
+        .form-control {
+            border: none;
+            box-shadow: none;
+            border-bottom: 2px solid orange;
+        }
+
+        .pad {
+            padding-top: 10px;
+        }
+
+        input[type=text] {
+            background-color: transparent;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="row">
+        <div style="visibility:hidden" class="col-md-4">q </div>
+        <div class="col-md-4">
+            <h2 style="color:white;">Calculate Your Duiyes Exam Grade</h2>
+            @using (Html.BeginForm("/Duiyes", "Duiyes", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label class="align-items: start;" for="reading">Reading - 15 Questions</label>
+                    <input type="text" placeholder="Reading" class="form-control" id="reading" name="reading" value="@Model.reading" />
+                </div>
+                <div class="form-group">
+                    <label for="listening">Listening - 15 Questions</label>
+                    <input type="text" class="form-control" id="listening" name="listening" value="@Model.listening" />
+                </div>
+                <div class="form-group">
+                    <label for="grammar">Grammar - 35 Questions</label>
+                    <input type="text" class="form-control" id="grammar" name="grammar" value="@Model.grammar" />
+                </div>
+                <div class="form-group">
+                    <label for="vocablary">Vocablary - 15 Questions</label>
+                    <input type="text" class="form-control" id="vocablary" name="vocablary" value="@Model.vocablary" />
+                </div>
+                <div class="form-group">
+                    <label for="writing">Writing - Score out of 100</label>
+                    <input type="text" class="form-control" id="writing" name="writing" value="@Model.writing" />
+                </div>
+                @*<div  id="foo"  class="form-group">
+                <label for="total">Your Grade:</label>
+                <input readonly="readonly" style="background-color:transparent" type="text" class="form-control" id="total" name="total" value="@Model.total"  />
+            </div>*@
+                <div id="alertbox"  role="alert" style="margin-top:2rem">
+                @Model.total;
+                This is a success alert—check it out!
+            </div>
+                <div style="padding-top:15px;">
+                    <button type="submit" class="btn btn-warning" id="miss" value="miss" name="calculate">Hesapla</button>
+                </div>
+            }
+        </div>
+        <div style="color:white;visibility:hidden" class="col-md-4"> </div>
+    </div>
+
+    <script>
+        (function () {
+            var examgrade = @Model.total;
+            var info = document.getElementById("alertbox");
+            if (examgrade == 0) {
+                info.className = "alert alert-info";
+                info.innerText = "Note: " + examgrade + " You will see your exam note here."
+            }
+            else if (examgrade < 60 && examgrade != 0) {
+                info.className = "alert alert-danger";
+                info.innerText = "Note: " + examgrade + " Failed!"
+            }
+            else {
+                info.className = "alert alert-success";
+                info.innerText = "Note: " + examgrade + " Success!"
+            }
+        })();    
+
+    </script>
+ 
+</body>
+</html>
+
+
+

@@ -1,0 +1,27 @@
+﻿body {
+}
+.navbar-brand {
+    color: white !important;
+    font-size:large;
+        
+}
+
+    .navbar-brand:visited {
+        color: white !important;
+              font-size:large;
+    }
+
+.navbar-default-color {
+    color: white !important;
+
+}
+
+.navbar-inverse {
+    color: #FFFFFF !important;
+          font-size:large;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    /*color: white;*/
+    /*font-size:large;*/
+}

@@ -1,0 +1,117 @@
+﻿@model WebApplication2.Models.popCalcSeven
+@{
+    ViewBag.Title = "SevenWeekers";
+}
+
+<html>
+
+<head>
+    <style>
+
+        label {
+            color: white;
+        }
+
+        html,
+        body {
+            background-color: #2A2B38;
+        }
+
+        .form-group {
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 15px;
+        }
+
+        .form-control {
+            border: none;
+            box-shadow: none;
+            border-bottom: 2px solid orange;
+        }
+
+        .pad {
+            padding-top: 10px;
+        }
+
+        input[type=text] {
+            background-color: transparent;
+            color:white;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="row">
+        <div style="visibility:hidden" class="col-md-4">q </div>
+        <div class="col-md-4">
+            <h2 style="color:white;">7 Weekers Calculator</h2>
+            @using (Html.BeginForm("/SevenWeekers", "PopCalc", FormMethod.Post))
+            {
+
+                <div class="form-group">
+                    <label for="wt1">Writing1</label>
+                    <input type="text" class="form-control" id="wt1" name="wt1" value="@Model.wt1" />
+                </div>
+                <div class="form-group">
+                    <label for="mid">Mid-Term</label>
+                    <input type="text" class="form-control" id="mid" name="mid" value="@Model.mid" />
+                </div>
+                <div class="form-group">
+                    <label for="wt2">Writing2</label>
+                    <input type="text" class="form-control" id="wt2" name="wt2" value="@Model.wt2" />
+                </div>
+                <div class="form-group">
+                    <label for="spe">Speaking</label>
+                    <input type="text" class="form-control" id="spe" name="spe" value="@Model.spe" />
+                </div>
+                <div class="form-group">
+                    <label for="cp">Class Participation</label>
+                    <input type="text" class="form-control" id="cp" name="cp" value="@Model.cp" />
+                </div>
+                <div class="form-group">
+                    <label for="op">OP</label>
+                    <input type="text" class="form-control" id="op" name="op" value="@Model.op" />
+                </div>
+                <div class="form-group">
+                    <label for="pop">Pop Exam</label>
+                    <input type="text" class="form-control" id="pop" name="pop" value="@Model.pop" />
+                </div>
+
+                <div id="alertbox" role="alert" style="margin-top:2rem">
+                    @Model.tot;
+                </div>
+                <div style="padding-top:15px;">
+                    <button type="submit" class="btn btn-warning btn-lg" id="miss" value="miss" name="calculate">Hesapla</button>
+                </div>
+            }
+
+        </div>
+        <div style="color:white;visibility:hidden" class="col-md-4"> </div>
+    </div>
+
+    <script>
+        (function () {
+            var examgrade = @Model.tot;
+            var info = document.getElementById("alertbox");
+            if (examgrade == 0) {
+                info.className = "alert alert-info";
+                info.innerText = "Note: " + examgrade + " You will see your exam note here."
+            }
+            else if (examgrade < 60 && examgrade != 0) {
+                info.className = "alert alert-danger";
+                info.innerText = "Note: " + examgrade + " Failed!"
+            }
+            else {
+                info.className = "alert alert-success";
+                info.innerText = "Note: " + examgrade + " Success!"
+            }
+        })();
+
+    </script>
+
+</body>
+</html>
+
+
+

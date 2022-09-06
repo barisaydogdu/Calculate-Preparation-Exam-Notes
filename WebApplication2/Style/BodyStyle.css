@@ -1,0 +1,37 @@
+﻿body {
+    /*background-color: #2A2B38;*/
+}
+
+.photoDiv {
+    /*background-image: url('../Images/homepagephoto.jpg');*/
+    /*background-image: url('');*/
+    background-image: url('../Images/examflat.jpg');
+}
+img {
+    max-width: 130%;
+    height: auto;
+    padding-top:3rem;
+    margin-left:0;
+    background-repeat:no-repeat;
+    border-image-repeat:inherit;
+}
+.infoDiv
+{
+    padding-top:30rem;
+    
+}
+h1 {
+    color: #2a2b38;
+    font-size: 7rem;
+    font-family: 'Roboto', sans-serif;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+    padding-top:1.5rem;
+}
+.homebtn
+{
+    width:25%;
+    border-radius:20px;
+    margin-top:1rem;
+}

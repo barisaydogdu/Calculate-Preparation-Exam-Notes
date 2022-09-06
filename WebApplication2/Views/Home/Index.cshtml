@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplication2.Models.tbl_main>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+
+<head>
+    <link href="~/Style/BodyStyle.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 infoDiv">
+                    <h1>@Html.DisplayFor(model=>item.title)</h1>
+                    <p>
+                      @item.Content
+                    </p>
+                    <button onclick="location.href='@Url.Action("Redirect", "Home")'" class="btn btn-info btn-lg homebtn">Get Start</button>
+
+                </div>
+                <div class="col-md-6 photoDiv">
+                    <img src="~/Images/examflat.jpg" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
